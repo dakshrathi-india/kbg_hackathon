@@ -1,0 +1,15 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# Downloaded/raw data
+data/
+
+# Generated processed datasets
+processed/
+
+# Trained models
+saved_models/
+
+# Generated results
+results/
