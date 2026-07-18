@@ -1,0 +1,23 @@
+{
+    "task": "d",
+    "endpoint": "Distribution",
+    "dataset": "BBB_Martins",
+    "task_type": "classification",
+    "primary_metric": "roc_auc",
+    "best_validation_solution": "Extra Trees",
+    "best_validation_metrics": {
+        "roc_auc": 0.9357517482517483,
+        "auprc": 0.9747095977642232
+    },
+    "best_xgboost_catboost_ensemble": {
+        "xgboost_weight": 0.95,
+        "catboost_weight": 0.05,
+        "selected_using": "roc_auc",
+        "validation_metrics": {
+            "roc_auc": 0.9274475524475524,
+            "auprc": 0.9697287618268662
+        }
+    },
+    "gpu_requested": true,
+    "test_set_used": false
+}

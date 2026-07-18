@@ -1,0 +1,23 @@
+{
+    "task": "m",
+    "endpoint": "Metabolism",
+    "dataset": "CYP3A4_Veith",
+    "task_type": "classification",
+    "primary_metric": "auprc",
+    "best_validation_solution": "Weighted Ensemble",
+    "best_validation_metrics": {
+        "roc_auc": 0.8521417200004273,
+        "auprc": 0.8087466097355331
+    },
+    "best_xgboost_catboost_ensemble": {
+        "xgboost_weight": 0.75,
+        "catboost_weight": 0.25,
+        "selected_using": "auprc",
+        "validation_metrics": {
+            "roc_auc": 0.8521417200004273,
+            "auprc": 0.8087466097355331
+        }
+    },
+    "gpu_requested": true,
+    "test_set_used": false
+}
