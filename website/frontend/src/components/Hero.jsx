@@ -103,8 +103,14 @@ function Hero() {
           </div>
 
           <h1 className="hero-title-v2">
-            Decode a molecule.
-            <span>Predict its ADMET profile.</span>
+            <strong className="hero-title-main">
+              Decode a molecule.
+            </strong>
+
+
+            <span className="hero-title-accent">
+              Predict its ADMET profile.
+            </span>
           </h1>
 
           <p className="hero-description-v2">

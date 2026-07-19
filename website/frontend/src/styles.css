@@ -4722,3 +4722,58 @@ button {
     width: 100%;
   }
 }
+
+
+
+/* Final hero heading colour fix */
+
+.hero-title-v2 {
+  margin: 28px 0 24px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(3.4rem, 6.5vw, 6.5rem);
+  line-height: 0.98;
+  letter-spacing: -0.06em;
+}
+
+.hero-title-v2 span {
+  display: block;
+}
+
+/* Definitive hero title fix */
+
+.hero-title-v2 > .hero-title-main {
+  display: block;
+  margin: 0;
+
+  color: #f8fafc !important;
+  -webkit-text-fill-color: #f8fafc !important;
+
+  background: none !important;
+  background-image: none !important;
+
+  opacity: 1 !important;
+  filter: none !important;
+
+  font: inherit;
+  font-weight: 700;
+}
+
+.hero-title-v2 > .hero-title-accent {
+  display: block;
+  margin-top: 14px;
+
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
+
+  background: linear-gradient(
+    90deg,
+    #67e8f9,
+    #38bdf8,
+    #818cf8,
+    #c084fc
+  ) !important;
+
+  background-size: 200% auto !important;
+  background-clip: text !important;
+  -webkit-background-clip: text !important;
+}

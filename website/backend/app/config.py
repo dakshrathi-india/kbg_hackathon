@@ -7,12 +7,18 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
+# kbg_hack_ps1/website/backend
 BACKEND_DIR = Path(__file__).resolve().parent.parent
 
-DATA_DIR = BACKEND_DIR / "data"
-MODEL_ARTIFACTS_DIR = BACKEND_DIR / "model_artifacts"
+# kbg_hack_ps1
+PROJECT_ROOT = Path(__file__).resolve().parents[3]
 
+# Runtime database remains inside website/backend/data
+DATA_DIR = BACKEND_DIR / "data"
 DATABASE_PATH = DATA_DIR / "prediction_history.db"
+
+# Final trained models are stored at kbg_hack_ps1/model_artifacts
+MODEL_ARTIFACTS_DIR = PROJECT_ROOT / "model_artifacts"
 
 
 ENDPOINT_CONFIG = {
