@@ -1,14 +1,51 @@
+# Frontend
+node_modules/
+dist/
+
+# Python environments
+.venv/
+venv/
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Local databases
+*.db
+*.sqlite
+*.sqlite3
+
 # Python cache
 __pycache__/
-*.pyc
+*.py[cod]
 
-# Downloaded/raw data
-data/
+# Python environments
+.venv/
+venv/
 
-# Generated processed datasets
-processed/
+# Python cache
+__pycache__/
+*.py[cod]
 
-# Trained models
-saved_models/
+# Frontend generated files
+node_modules/
+dist/
 
-# Generated results
+# Private environment files
+.env
+.env.*
+!.env.example
+
+# Local databases
+*.db
+*.sqlite
+*.sqlite3
+
+.vscode/cloudflared.exe
+deployment/backend_space/model_artifacts/
+website/frontend/.env.production
+
+/.vscode/
+/cloudflared.exe
+/model_artifacts/
