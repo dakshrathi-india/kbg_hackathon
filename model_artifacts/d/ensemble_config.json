@@ -1,0 +1,31 @@
+{
+    "task": "d",
+    "endpoint": "Distribution",
+    "dataset": "BBB_Martins",
+    "task_type": "classification",
+    "seeds": [
+        42,
+        52,
+        62
+    ],
+    "seed_aggregation": "mean",
+    "model_families": [
+        "Extra Trees",
+        "XGBoost",
+        "CatBoost",
+        "LightGBM"
+    ],
+    "ensemble_weights": {
+        "Extra Trees": 0.25,
+        "XGBoost": 0.25,
+        "CatBoost": 0.25,
+        "LightGBM": 0.25
+    },
+    "selected_using": "roc_auc",
+    "validation_metrics": {
+        "roc_auc": 0.9323176823176823,
+        "auprc": 0.9727472205958123
+    },
+    "target_transformation": "none",
+    "e_uses_tuned_parameters": false
+}

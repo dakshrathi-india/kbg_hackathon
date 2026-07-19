@@ -1,0 +1,31 @@
+{
+    "task": "a",
+    "endpoint": "Absorption",
+    "dataset": "Caco2_Wang",
+    "task_type": "regression",
+    "seeds": [
+        42,
+        52,
+        62
+    ],
+    "seed_aggregation": "mean",
+    "model_families": [
+        "Extra Trees",
+        "XGBoost",
+        "CatBoost",
+        "LightGBM"
+    ],
+    "ensemble_weights": {
+        "Extra Trees": 0.0,
+        "XGBoost": 0.0,
+        "CatBoost": 1.0,
+        "LightGBM": 0.0
+    },
+    "selected_using": "rmse",
+    "validation_metrics": {
+        "rmse": 0.4080189075373517,
+        "r2": 0.7361350134565828
+    },
+    "target_transformation": "none",
+    "e_uses_tuned_parameters": false
+}

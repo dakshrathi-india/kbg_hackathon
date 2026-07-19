@@ -1,0 +1,31 @@
+{
+    "task": "e",
+    "endpoint": "Excretion",
+    "dataset": "Clearance_Hepatocyte_AZ",
+    "task_type": "regression",
+    "seeds": [
+        42,
+        52,
+        62
+    ],
+    "seed_aggregation": "mean",
+    "model_families": [
+        "Extra Trees",
+        "XGBoost",
+        "CatBoost",
+        "LightGBM"
+    ],
+    "ensemble_weights": {
+        "Extra Trees": 0.0,
+        "XGBoost": 0.23011698869750533,
+        "CatBoost": 0.42866166002577666,
+        "LightGBM": 0.341221351276718
+    },
+    "selected_using": "rmse",
+    "validation_metrics": {
+        "rmse": 41.30610295343185,
+        "r2": 0.31961311205866805
+    },
+    "target_transformation": "none",
+    "e_uses_tuned_parameters": true
+}

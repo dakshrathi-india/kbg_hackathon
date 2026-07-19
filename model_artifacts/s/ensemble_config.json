@@ -1,0 +1,31 @@
+{
+    "task": "s",
+    "endpoint": "Solubility",
+    "dataset": "Solubility_AqSolDB",
+    "task_type": "regression",
+    "seeds": [
+        42,
+        52,
+        62
+    ],
+    "seed_aggregation": "mean",
+    "model_families": [
+        "Extra Trees",
+        "XGBoost",
+        "CatBoost",
+        "LightGBM"
+    ],
+    "ensemble_weights": {
+        "Extra Trees": 0.190679362195463,
+        "XGBoost": 0.0,
+        "CatBoost": 0.5302789881519819,
+        "LightGBM": 0.2790416496525551
+    },
+    "selected_using": "rmse",
+    "validation_metrics": {
+        "rmse": 1.1436807946151113,
+        "r2": 0.6987438505748715
+    },
+    "target_transformation": "none",
+    "e_uses_tuned_parameters": false
+}

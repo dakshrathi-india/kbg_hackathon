@@ -3,14 +3,25 @@ from pathlib import Path
 import numpy as np
 
 
+# ============================================================
+# SETTINGS
+# ============================================================
+
 # Folder containing:
+#
 # processed/a
 # processed/d
 # processed/m
 # processed/e
 # processed/t
+# processed/s
+
 PROCESSED_FOLDER = Path("processed")
 
+
+# ============================================================
+# LOAD DATA
+# ============================================================
 
 def load_data(task):
     """
@@ -19,90 +30,313 @@ def load_data(task):
     Parameters
     ----------
     task : str
-        One of:
+
         "a" -> Absorption
+               Caco2_Wang
+
         "d" -> Distribution
+               BBB_Martins
+
         "m" -> Metabolism
-        "e" -> Excretion
+               CYP3A4_Veith
+
+        "e" -> Excretion / Clearance
+               Clearance_Hepatocyte_AZ
+
         "t" -> Toxicity
+               AMES
+
+        "s" -> Solubility
+               Solubility_AqSolDB
+
 
     Returns
     -------
-    A dictionary containing:
+    Dictionary containing:
 
         X_train
         y_train
+
         X_valid
         y_valid
+
         X_test
         y_test
     """
 
-    # Convert inputs such as "A" or " a " into "a".
-    task = task.strip().lower()
+    # ========================================================
+    # NORMALIZE TASK NAME
+    # ========================================================
 
-    valid_tasks = ["a", "d", "m", "e", "t"]
+    # Convert:
+    #
+    # "E"   -> "e"
+    # " e " -> "e"
+
+    task = (
+        task
+        .strip()
+        .lower()
+    )
+
+
+    # ========================================================
+    # VALID TASKS
+    # ========================================================
+
+    valid_tasks = [
+        "a",
+        "d",
+        "m",
+        "e",
+        "t",
+        "s",
+    ]
+
 
     if task not in valid_tasks:
+
         raise ValueError(
-            "Invalid task. Please use one of: "
-            "'a', 'd', 'm', 'e', or 't'."
+            "Invalid task. "
+            "Please use one of: "
+            "'a', 'd', 'm', 'e', 't', or 's'."
         )
 
-    task_folder = PROCESSED_FOLDER / task
+
+    # ========================================================
+    # TASK FOLDER
+    # ========================================================
+
+    task_folder = (
+        PROCESSED_FOLDER
+        / task
+    )
+
 
     if not task_folder.exists():
+
         raise FileNotFoundError(
-            f"Folder not found: {task_folder}\n"
+
+            f"Folder not found: "
+            f"{task_folder}\n"
+
             "Run prepare_data.py first."
         )
 
-    # Names of all files required for model training.
+
+    # ========================================================
+    # REQUIRED FILES
+    # ========================================================
+
     file_paths = {
-        "X_train": task_folder / "X_train.npy",
-        "y_train": task_folder / "y_train.npy",
 
-        "X_valid": task_folder / "X_valid.npy",
-        "y_valid": task_folder / "y_valid.npy",
+        "X_train": (
+            task_folder
+            / "X_train.npy"
+        ),
 
-        "X_test": task_folder / "X_test.npy",
-        "y_test": task_folder / "y_test.npy",
+        "y_train": (
+            task_folder
+            / "y_train.npy"
+        ),
+
+
+        "X_valid": (
+            task_folder
+            / "X_valid.npy"
+        ),
+
+        "y_valid": (
+            task_folder
+            / "y_valid.npy"
+        ),
+
+
+        "X_test": (
+            task_folder
+            / "X_test.npy"
+        ),
+
+        "y_test": (
+            task_folder
+            / "y_test.npy"
+        ),
     }
 
-    # Check that every required file exists.
-    for file_name, file_path in file_paths.items():
+
+    # ========================================================
+    # CHECK FILES EXIST
+    # ========================================================
+
+    for (
+        file_name,
+        file_path,
+    ) in file_paths.items():
+
+
         if not file_path.exists():
+
             raise FileNotFoundError(
-                f"Missing file: {file_path}\n"
-                "Run prepare_data.py again."
+
+                f"Missing file: "
+                f"{file_path}\n"
+
+                f"Required for: "
+                f"{file_name}\n"
+
+                "Run prepare_data.py "
+                "for this endpoint first."
             )
 
-    # Load NumPy arrays.
+
+    # ========================================================
+    # LOAD NUMPY ARRAYS
+    # ========================================================
+
     data = {
-        "X_train": np.load(file_paths["X_train"]),
-        "y_train": np.load(file_paths["y_train"]),
 
-        "X_valid": np.load(file_paths["X_valid"]),
-        "y_valid": np.load(file_paths["y_valid"]),
+        "X_train": np.load(
+            file_paths[
+                "X_train"
+            ]
+        ),
 
-        "X_test": np.load(file_paths["X_test"]),
-        "y_test": np.load(file_paths["y_test"]),
+        "y_train": np.load(
+            file_paths[
+                "y_train"
+            ]
+        ),
+
+
+        "X_valid": np.load(
+            file_paths[
+                "X_valid"
+            ]
+        ),
+
+        "y_valid": np.load(
+            file_paths[
+                "y_valid"
+            ]
+        ),
+
+
+        "X_test": np.load(
+            file_paths[
+                "X_test"
+            ]
+        ),
+
+        "y_test": np.load(
+            file_paths[
+                "y_test"
+            ]
+        ),
     }
 
-    # Verify that X and y have the same number of rows.
-    if len(data["X_train"]) != len(data["y_train"]):
+
+    # ========================================================
+    # VERIFY TRAIN DATA
+    # ========================================================
+
+    if (
+        len(
+            data[
+                "X_train"
+            ]
+        )
+        !=
+        len(
+            data[
+                "y_train"
+            ]
+        )
+    ):
+
         raise ValueError(
-            "X_train and y_train have different numbers of rows."
+            "X_train and y_train "
+            "have different numbers "
+            "of rows."
         )
 
-    if len(data["X_valid"]) != len(data["y_valid"]):
+
+    # ========================================================
+    # VERIFY VALIDATION DATA
+    # ========================================================
+
+    if (
+        len(
+            data[
+                "X_valid"
+            ]
+        )
+        !=
+        len(
+            data[
+                "y_valid"
+            ]
+        )
+    ):
+
         raise ValueError(
-            "X_valid and y_valid have different numbers of rows."
+            "X_valid and y_valid "
+            "have different numbers "
+            "of rows."
         )
 
-    if len(data["X_test"]) != len(data["y_test"]):
-        raise ValueError(
-            "X_test and y_test have different numbers of rows."
+
+    # ========================================================
+    # VERIFY TEST DATA
+    # ========================================================
+
+    if (
+        len(
+            data[
+                "X_test"
+            ]
         )
+        !=
+        len(
+            data[
+                "y_test"
+            ]
+        )
+    ):
+
+        raise ValueError(
+            "X_test and y_test "
+            "have different numbers "
+            "of rows."
+        )
+
+
+    # ========================================================
+    # PRINT LOADED DATASET INFO
+    # ========================================================
+
+    print(
+        f"Loaded task: "
+        f"{task.upper()}"
+    )
+
+    print(
+        f"Train: "
+        f"{data['X_train'].shape}"
+    )
+
+    print(
+        f"Validation: "
+        f"{data['X_valid'].shape}"
+    )
+
+    print(
+        f"Test: "
+        f"{data['X_test'].shape}"
+    )
+
+
+    # ========================================================
+    # RETURN DATA
+    # ========================================================
 
     return data

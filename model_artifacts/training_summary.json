@@ -1,0 +1,188 @@
+{
+    "a": {
+        "task": "a",
+        "endpoint": "Absorption",
+        "dataset": "Caco2_Wang",
+        "task_type": "regression",
+        "seeds": [
+            42,
+            52,
+            62
+        ],
+        "seed_aggregation": "mean",
+        "model_families": [
+            "Extra Trees",
+            "XGBoost",
+            "CatBoost",
+            "LightGBM"
+        ],
+        "ensemble_weights": {
+            "Extra Trees": 0.0,
+            "XGBoost": 0.0,
+            "CatBoost": 1.0,
+            "LightGBM": 0.0
+        },
+        "selected_using": "rmse",
+        "validation_metrics": {
+            "rmse": 0.4080189075373517,
+            "r2": 0.7361350134565828
+        },
+        "target_transformation": "none",
+        "e_uses_tuned_parameters": false
+    },
+    "d": {
+        "task": "d",
+        "endpoint": "Distribution",
+        "dataset": "BBB_Martins",
+        "task_type": "classification",
+        "seeds": [
+            42,
+            52,
+            62
+        ],
+        "seed_aggregation": "mean",
+        "model_families": [
+            "Extra Trees",
+            "XGBoost",
+            "CatBoost",
+            "LightGBM"
+        ],
+        "ensemble_weights": {
+            "Extra Trees": 0.25,
+            "XGBoost": 0.25,
+            "CatBoost": 0.25,
+            "LightGBM": 0.25
+        },
+        "selected_using": "roc_auc",
+        "validation_metrics": {
+            "roc_auc": 0.9323176823176823,
+            "auprc": 0.9727472205958123
+        },
+        "target_transformation": "none",
+        "e_uses_tuned_parameters": false
+    },
+    "m": {
+        "task": "m",
+        "endpoint": "Metabolism",
+        "dataset": "CYP3A4_Veith",
+        "task_type": "classification",
+        "seeds": [
+            42,
+            52,
+            62
+        ],
+        "seed_aggregation": "mean",
+        "model_families": [
+            "Extra Trees",
+            "XGBoost",
+            "CatBoost",
+            "LightGBM"
+        ],
+        "ensemble_weights": {
+            "Extra Trees": 0.25,
+            "XGBoost": 0.25,
+            "CatBoost": 0.25,
+            "LightGBM": 0.25
+        },
+        "selected_using": "auprc",
+        "validation_metrics": {
+            "roc_auc": 0.858867650358467,
+            "auprc": 0.8180050547129923
+        },
+        "target_transformation": "none",
+        "e_uses_tuned_parameters": false
+    },
+    "e": {
+        "task": "e",
+        "endpoint": "Excretion",
+        "dataset": "Clearance_Hepatocyte_AZ",
+        "task_type": "regression",
+        "seeds": [
+            42,
+            52,
+            62
+        ],
+        "seed_aggregation": "mean",
+        "model_families": [
+            "Extra Trees",
+            "XGBoost",
+            "CatBoost",
+            "LightGBM"
+        ],
+        "ensemble_weights": {
+            "Extra Trees": 0.0,
+            "XGBoost": 0.23011698869750533,
+            "CatBoost": 0.42866166002577666,
+            "LightGBM": 0.341221351276718
+        },
+        "selected_using": "rmse",
+        "validation_metrics": {
+            "rmse": 41.30610295343185,
+            "r2": 0.31961311205866805
+        },
+        "target_transformation": "none",
+        "e_uses_tuned_parameters": true
+    },
+    "t": {
+        "task": "t",
+        "endpoint": "Toxicity",
+        "dataset": "AMES",
+        "task_type": "classification",
+        "seeds": [
+            42,
+            52,
+            62
+        ],
+        "seed_aggregation": "mean",
+        "model_families": [
+            "Extra Trees",
+            "XGBoost",
+            "CatBoost",
+            "LightGBM"
+        ],
+        "ensemble_weights": {
+            "Extra Trees": 0.25,
+            "XGBoost": 0.25,
+            "CatBoost": 0.25,
+            "LightGBM": 0.25
+        },
+        "selected_using": "roc_auc",
+        "validation_metrics": {
+            "roc_auc": 0.8125447537212243,
+            "auprc": 0.8045135685438871
+        },
+        "target_transformation": "none",
+        "e_uses_tuned_parameters": false
+    },
+    "s": {
+        "task": "s",
+        "endpoint": "Solubility",
+        "dataset": "Solubility_AqSolDB",
+        "task_type": "regression",
+        "seeds": [
+            42,
+            52,
+            62
+        ],
+        "seed_aggregation": "mean",
+        "model_families": [
+            "Extra Trees",
+            "XGBoost",
+            "CatBoost",
+            "LightGBM"
+        ],
+        "ensemble_weights": {
+            "Extra Trees": 0.190679362195463,
+            "XGBoost": 0.0,
+            "CatBoost": 0.5302789881519819,
+            "LightGBM": 0.2790416496525551
+        },
+        "selected_using": "rmse",
+        "validation_metrics": {
+            "rmse": 1.1436807946151113,
+            "r2": 0.6987438505748715
+        },
+        "target_transformation": "none",
+        "e_uses_tuned_parameters": false
+    }
+}

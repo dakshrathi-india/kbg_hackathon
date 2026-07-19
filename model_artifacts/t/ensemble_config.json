@@ -1,0 +1,31 @@
+{
+    "task": "t",
+    "endpoint": "Toxicity",
+    "dataset": "AMES",
+    "task_type": "classification",
+    "seeds": [
+        42,
+        52,
+        62
+    ],
+    "seed_aggregation": "mean",
+    "model_families": [
+        "Extra Trees",
+        "XGBoost",
+        "CatBoost",
+        "LightGBM"
+    ],
+    "ensemble_weights": {
+        "Extra Trees": 0.25,
+        "XGBoost": 0.25,
+        "CatBoost": 0.25,
+        "LightGBM": 0.25
+    },
+    "selected_using": "roc_auc",
+    "validation_metrics": {
+        "roc_auc": 0.8125447537212243,
+        "auprc": 0.8045135685438871
+    },
+    "target_transformation": "none",
+    "e_uses_tuned_parameters": false
+}

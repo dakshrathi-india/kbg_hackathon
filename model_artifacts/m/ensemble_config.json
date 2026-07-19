@@ -1,0 +1,31 @@
+{
+    "task": "m",
+    "endpoint": "Metabolism",
+    "dataset": "CYP3A4_Veith",
+    "task_type": "classification",
+    "seeds": [
+        42,
+        52,
+        62
+    ],
+    "seed_aggregation": "mean",
+    "model_families": [
+        "Extra Trees",
+        "XGBoost",
+        "CatBoost",
+        "LightGBM"
+    ],
+    "ensemble_weights": {
+        "Extra Trees": 0.25,
+        "XGBoost": 0.25,
+        "CatBoost": 0.25,
+        "LightGBM": 0.25
+    },
+    "selected_using": "auprc",
+    "validation_metrics": {
+        "roc_auc": 0.858867650358467,
+        "auprc": 0.8180050547129923
+    },
+    "target_transformation": "none",
+    "e_uses_tuned_parameters": false
+}
