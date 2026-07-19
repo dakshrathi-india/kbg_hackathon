@@ -42,4 +42,10 @@ dist/
 *.sqlite
 *.sqlite3
 
-.vscode/
+.vscode/cloudflared.exe
+deployment/backend_space/model_artifacts/
+website/frontend/.env.production
+
+/.vscode/
+/cloudflared.exe
+/model_artifacts/
